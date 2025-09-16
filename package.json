@@ -1,0 +1,49 @@
+{
+  "name": "pdf-to-image-converter",
+  "version": "1.0.0",
+  "main": "main-simple.js",
+  "description": "PDF to Image Converter - A sleek desktop app for converting PDF files to images",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": ["pdf", "image", "converter", "electron", "desktop"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0",
+    "pdf-poppler": "^0.2.1"
+  },
+  "optionalDependencies": {
+    "electron-installer-dmg": "^4.0.0"
+  },
+  "build": {
+    "appId": "com.pdftoimage.converter",
+    "productName": "PDF to Image Converter",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main-simple.js",
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "preload.js",
+      "styles.css",
+      "assets/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    },
+    "dmg": {
+      "title": "PDF to Image Converter"
+    }
+  }
+}
